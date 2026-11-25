@@ -8,8 +8,8 @@ Pure Python standard library only.
 import os
 
 ENTRY = (
-    "We held a 45-minute meeting that could have been an email, "
-    "then scheduled a follow-up to discuss why the email never arrived."
+    "We spent 45 minutes in a meeting that could have been an email, "
+    "and the only decision was to schedule another meeting about the email."
 )
 
 MAX_CHARS = 200
@@ -38,6 +38,7 @@ def main():
     os.makedirs(out_dir, exist_ok=True)
     text = validate(ENTRY)
     path = os.path.join(out_dir, "entry.txt")
+    # Single trailing newline: the file holds one line of text.
     with open(path, "w", encoding="utf-8", newline="\n") as f:
         f.write(text + "\n")
     print("wrote %s (%d chars)" % (path, len(text)))
